@@ -1,0 +1,28 @@
+# Resume-Job Gap Analyzer - Python dependencies
+# Install everything with:  pip install -r requirements.txt
+
+# Web UI framework. 1.65+ is required because the app passes width="stretch"
+# to st.dataframe/st.button, which replaced the removed use_container_width.
+streamlit>=1.65
+
+# Tabular data (the skill gap table)
+pandas>=2.0
+
+# Machine learning: TF-IDF vectorizer + cosine similarity
+scikit-learn>=1.3
+
+# PDF text extraction. Version 1.24+ is required because we use the modern
+# `import pymupdf` name instead of the deprecated `import fitz`.
+PyMuPDF>=1.24
+
+# Semantic similarity: the all-MiniLM-L6-v2 sentence transformer. Pulls in
+# PyTorch, so this is the largest dependency by far. The app and the test
+# suite run fine without it - the AI score is simply skipped.
+sentence-transformers>=2.2
+
+# HTTP client for the AI assistant, which talks to a local Ollama server
+# (http://localhost:11434). No API key is involved - Ollama has none.
+requests>=2.31
+
+# Test runner (development only, not needed to run the app)
+pytest>=8.0
